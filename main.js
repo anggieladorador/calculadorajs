@@ -9,8 +9,6 @@ var buttons = [  "+" , "-", "*", "/", "enter","1" , "2", "3", "4", "5", "6" , "7
 
 render()
 
-
-buttons.map ( material => material.length)
 function render(){
     body.appendChild(container)
     container.appendChild(textContainer)
@@ -18,6 +16,17 @@ function render(){
     textContainer.appendChild(inputText) 
     Style()
     createButtons()
+}
+function createButtons (){
+     buttons.map(function(i){
+         var newButton = document.createElement("button")
+         newButton.style.width= 50
+         newButton.style.height = 50
+         newButton.style.backgroundColor = "#ffeab9"
+         var textButton = document.createTextNode(i)
+         newButton.appendChild(textButton)
+         buttonContainer.appendChild(newButton)
+    })
 }
 
 function Style(){
@@ -36,17 +45,6 @@ function Style(){
     buttonContainer.style.height = 350
     buttonContainer.style.margin ="auto"
     buttonContainer.style.padding= 25
-}
-
-function createButtons (){
-     buttons.map(function(i){
-         var newButton = document.createElement("button")
-         newButton.style.width= 50
-         newButton.style.height = 50
-         newButton.style.backgroundColor = "#ffeab9"
-         newButton.setAttribute("value", i)  
-         buttonContainer.appendChild(newButton)
-    })
 }
 
 

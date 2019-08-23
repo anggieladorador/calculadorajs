@@ -5,19 +5,21 @@ const buttonContainer = document.getElementById("buttonContainer")
 
 const inputText = document.createElement("input")
 inputText.setAttribute("type", "text")
+var buttons = [  "+" , "-", "*", "/", "enter","1" , "2", "3", "4", "5", "6" , "7", "8", "9", "0"]
 
 render()
 
+
+buttons.map ( material => material.length)
 function render(){
     body.appendChild(container)
     container.appendChild(textContainer)
     container.appendChild(buttonContainer)
     textContainer.appendChild(inputText) 
-    signalCreation()
-    numberCreation()
     Style()
-
+    createButtons()
 }
+
 function Style(){
     container.style.width = 300
     container.style.height = 300
@@ -33,38 +35,21 @@ function Style(){
     buttonContainer.style.width = "90%"
     buttonContainer.style.height = 350
     buttonContainer.style.margin ="auto"
+    buttonContainer.style.padding= 25
 }
-function numberCreation(){
-    for (let i = 0; i < 10; i++) {
-        var btn= document.createElement("input")
-        btn.style.height = 50
-        btn.style.width = 50
-        btn.setAttribute("type", "button")
-        btn.setAttribute("value", i)
-        buttonContainer.appendChild(btn)
-    }
+
+function createButtons (){
+     buttons.map(function(i){
+         var newButton = document.createElement("button")
+         newButton.style.width= 50
+         newButton.style.height = 50
+         newButton.style.backgroundColor = "#ffeab9"
+         newButton.setAttribute("value", i)  
+         buttonContainer.appendChild(newButton)
+    })
 }
-function signalCreation(){
-    for (let i = 0; i < 4; i++) {
-        var btn= document.createElement("input")
-        btn.style.height = 50
-        btn.style.width = 50
-        btn.setAttribute("type", "button")
-        buttonContainer.appendChild(btn)
-        if(i===0){
-            btn.setAttribute("value", "+")
-        }
-        if(i===1){
-            btn.setAttribute("value", "-")
-        }
-        if(i===2){
-            btn.setAttribute("value", "*")
-        }
-        if(i===3){
-            btn.setAttribute("value", "/")
-        }
-    }
-}
+
+
 
 
 

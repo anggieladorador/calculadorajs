@@ -18,7 +18,7 @@ function render(){
     createButtons()
 }
 
-function createButtons (){
+function createButtons (){ //no posee solo el crear, tambien la identificación de valor al hacer click
      buttons.map(function(i){
         var newButton = document.createElement("button")
         newButton.style.width= 50
@@ -27,7 +27,14 @@ function createButtons (){
         var textButton = document.createTextNode(i)
         newButton.appendChild(textButton)
         buttonContainer.appendChild(newButton) 
-        newButton.onclick = function(){ inputText.value= i}
+        newButton.onclick = function(){
+                if(i === "enter"){
+                   inputText.value = "result"   
+                }
+                else{
+                    inputText.value = i
+                }
+            }
     })
 }
 

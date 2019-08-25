@@ -17,15 +17,17 @@ function render(){
     Style()
     createButtons()
 }
+
 function createButtons (){
      buttons.map(function(i){
-         var newButton = document.createElement("button")
-         newButton.style.width= 50
-         newButton.style.height = 50
-         newButton.style.backgroundColor = "#ffeab9"
-         var textButton = document.createTextNode(i)
-         newButton.appendChild(textButton)
-         buttonContainer.appendChild(newButton)
+        var newButton = document.createElement("button")
+        newButton.style.width= 50
+        newButton.style.height = 50
+        newButton.style.backgroundColor = "#ffeab9"
+        var textButton = document.createTextNode(i)
+        newButton.appendChild(textButton)
+        buttonContainer.appendChild(newButton) 
+        newButton.onclick = function(){ inputText.value= i}
     })
 }
 

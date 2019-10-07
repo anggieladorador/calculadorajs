@@ -2,7 +2,6 @@ var body = document.body
 const container = document.getElementById("container")
 const textContainer = document.getElementById("textContainer")
 const buttonContainer = document.getElementById("buttonContainer")
-
 const inputText = document.createElement("input")
 inputText.setAttribute("type", "text")
 var buttons = [
@@ -32,6 +31,7 @@ function render() {
     textContainer.appendChild(inputText)
     Style()
     createButtons()
+   
 }
 
 function createButtons() {
@@ -44,20 +44,10 @@ function createButtons() {
         let textButton = document.createTextNode(i)
         newButton.appendChild(textButton)
         buttonContainer.appendChild(newButton)
-        if (isNaN(newButton.getAttribute("id"))) {
-            //clase dependiendo del tipo
-            if (newButton.getAttribute("id") == "enter") {
-                newButton.setAttribute("classname", i)
-                console.log(newButton)
-            } else {
-                newButton.setAttribute("classname", "simbolos")
-                console.log(newButton)
-            }
-        } else {
-            newButton.setAttribute("classname", "numeros")
-            console.log(newButton)
-        }
+        newButton.setAttribute("class", "btn")
+        
     })
+
 }
 
 function Style() {
@@ -77,3 +67,4 @@ function Style() {
     buttonContainer.style.margin = "auto"
     buttonContainer.style.padding = 25
 }
+

@@ -6,13 +6,17 @@ concatenate()
 function concatenate() {
 	for (const btn in buttons) {
 		if (typeof buttons[btn] == 'object') {
-			if (buttons[btn].id !== 'enter') {
+			if (buttons[btn].id == 'c') {
 				buttons[btn].addEventListener('click', () => {
-					inputText.value = inputText.value + buttons[btn].id
+					inputText.value = ''
+				})
+			} else if (buttons[btn].id == 'enter') {
+				buttons[btn].addEventListener('click', () => {
+					operatorChoose(inputText.value)
 				})
 			} else {
 				buttons[btn].addEventListener('click', () => {
-					operatorChoose(inputText.value)
+					inputText.value = inputText.value + buttons[btn].id
 				})
 			}
 		}
